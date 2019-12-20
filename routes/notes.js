@@ -3,40 +3,31 @@ const router = express.Router();
 const { check } = require("express-validator");
 
 const auth = require("../middleware/auth");
+const notesController = require("../controllers/notes");
 
 // @route     GET api/notes
 // @desc      Get all notes
 // @access    Private
-router.get("/", auth, (req, res) => {
-  res.json({ msg: "Get all notes" });
-});
-
-// @route     GET api/notes/:id
-// @desc      Get a note
-// @access    Private
-router.get("/:id", auth, (req, res) => {
-  res.json({ msg: "Get a note" });
-});
+router.get("/", auth, notesController.index);
 
 // @route     POST api/notes
 // @desc      Create a note
 // @access    Private
-router.post("/", auth, (req, res) => {
-  res.json({ msg: "Create a note" });
-});
+router.post("/", auth, notesController.create);
+
+// @route     GET api/notes/:id
+// @desc      Get a note
+// @access    Private
+router.get("/:id", auth, notesController.read);
 
 // @route     PATCH api/notes/:id
 // @desc      Edit a note
 // @access    Private
-router.patch("/:id", auth, (req, res) => {
-  res.json({ msg: "Edit a note" });
-});
+router.patch("/:id", auth, notesController.update);
 
 // @route     DELETE api/notes/:id
 // @desc      Delete a note
 // @access    Private
-router.delete("/:id", auth, (req, res) => {
-  res.json({ msg: "Delete a note" });
-});
+router.delete("/:id", auth, notesController.delete);
 
 module.exports = router;

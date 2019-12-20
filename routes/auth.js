@@ -3,7 +3,7 @@ const router = express.Router();
 const { check } = require("express-validator");
 
 const auth = require("../middleware/auth");
-const authController = require("../controllers/authController");
+const authController = require("../controllers/auth");
 
 // @route     GET api/auth
 // @desc      Get logged in user
