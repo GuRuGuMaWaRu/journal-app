@@ -16,11 +16,11 @@ router.get("/", notesController.index);
 router.post(
   "/",
   [
-    check("title")
+    check("title", "Please add title")
       .not()
       .isEmpty()
       .trim(),
-    check("body")
+    check("body", "Please add note text")
       .not()
       .isEmpty()
       .trim()
@@ -36,7 +36,20 @@ router.get("/:id", notesController.read);
 // @route     PATCH api/notes/:id
 // @desc      Edit a note
 // @access    Private
-router.patch("/:id", notesController.update);
+router.patch(
+  "/:id",
+  [
+    check("title", "Please add title")
+      .not()
+      .isEmpty()
+      .trim(),
+    check("body", "Please add note text")
+      .not()
+      .isEmpty()
+      .trim()
+  ],
+  notesController.update
+);
 
 // @route     DELETE api/notes/:id
 // @desc      Delete a note

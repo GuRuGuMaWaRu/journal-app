@@ -45,9 +45,10 @@ module.exports = {
   // @access    Private
   update: async (req, res) => {
     const id = req.params.id;
+    const updatedNote = { ...req.body, date: Date.now() };
 
     try {
-      await Note.findByIdAndUpdate(id, req.body);
+      await Note.findByIdAndUpdate(id, updatedNote);
 
       res.status(200).json({ msg: "Note updated successfully" });
     } catch (err) {
