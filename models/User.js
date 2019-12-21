@@ -1,5 +1,5 @@
-const express = require("express");
-const Schema = express.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   name: {
@@ -8,7 +8,8 @@ const userSchema = new Schema({
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   password: {
     type: String,
@@ -16,4 +17,4 @@ const userSchema = new Schema({
   }
 });
 
-module.exports = express.model("User", userSchema);
+module.exports = mongoose.model("User", userSchema);

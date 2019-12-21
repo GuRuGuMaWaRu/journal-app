@@ -12,6 +12,8 @@ mongoose.connect(process.env.MONGODB, {
   useFindAndModify: false
 });
 
+mongoose.set("useCreateIndex", true);
+
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Connection error:"));
 db.once("open", () => console.log("Connection to database is established"));
