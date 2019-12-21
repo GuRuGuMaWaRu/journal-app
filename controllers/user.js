@@ -15,7 +15,7 @@ module.exports = {
       let user = await User.findOne({ email: req.body.email });
 
       if (user) {
-        res.status(422).json({ msg: "Registration failed" });
+        return res.status(422).json({ msg: "Registration failed" });
       }
 
       user = new User(req.body);
@@ -33,7 +33,6 @@ module.exports = {
         { expiresIn: "24h" },
         (err, token) => {
           if (err) throw err;
-
           res.status(201).json(token);
         }
       );

@@ -8,7 +8,7 @@ const authController = require("../controllers/auth");
 // @route     GET api/auth
 // @desc      Get logged in user
 // @access    Private
-router.get("/", auth, authController.get);
+router.get("/", authController.get);
 
 // @route     POST api/auth
 // @desc      Auth user & get token
@@ -16,7 +16,7 @@ router.get("/", auth, authController.get);
 router.post(
   "/",
   [
-    check("email", "Please provide valid email").isEmail(),
+    check("email", "Please provide email").isEmail(),
     check("password", "Please provide password").exists()
   ],
   authController.login
