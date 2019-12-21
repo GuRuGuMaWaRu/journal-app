@@ -23,7 +23,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 // Set up routes
-// app.use("/api/user", require("./routes/user"));
+app.use("/api/user", require("./routes/user"));
 // app.use("/api/auth", require("./routes/auth"));
 app.use("/api/note", require("./routes/notes"));
 

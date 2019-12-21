@@ -12,12 +12,12 @@ router.post(
   [
     check("name", "Please add name")
       .not()
-      .isEmpty(),
+      .isEmpty()
+      .trim(),
     check("email", "Please add email").isEmail(),
-    check(
-      "password1",
-      "Please enter a password with 6 or more characters"
-    ).isLength({ min: 6 })
+    check("password1", "Please enter a password with 6 or more characters")
+      .trim()
+      .isLength({ min: 6 })
   ],
   userController.register
 );
