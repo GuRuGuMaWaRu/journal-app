@@ -8,12 +8,13 @@ require("dotenv").config({ path: "process.env" });
 // Connect to database
 mongoose.connect(process.env.MONGODB, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useFindAndModify: false
 });
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Connection error:"));
-db.once("open", () => console.log("Connection with database is established"));
+db.once("open", () => console.log("Connection to database is established"));
 
 const app = express();
 
