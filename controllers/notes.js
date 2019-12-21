@@ -25,8 +25,20 @@ module.exports = {
       res.status(500).json({ error: err.message });
     }
   },
+  // @route     GET api/notes/:id
+  // @desc      Get a note
+  // @access    Private
   read: async (req, res) => {
-    res.status(200).json({ msg: "Get a note" });
+    const id = req.params.id;
+
+    try {
+      const note = await Note.findById(id);
+
+      res.status(200).json(note);
+    } catch (err) {
+      console.error("Error:", err.message);
+      res.status(500).json({ error: err.message });
+    }
   },
   update: async (req, res) => {
     res.status(200).json({ msg: "Change a note" });
