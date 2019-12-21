@@ -19,6 +19,7 @@ const app = express();
 
 // Set up middleware
 app.use(morgan("dev"));
+app.use(express.json());
 
 // Set up routes
 // app.use("/api/user", require("./routes/user"));
