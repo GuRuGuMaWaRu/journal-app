@@ -1,8 +1,17 @@
 const Note = require("../models/Note");
 
 module.exports = {
+  // @route     GET api/notes
+  // @desc      Get all notes
+  // @access    Private
   index: async (req, res) => {
-    res.status(200).json({ msg: "Get all notes" });
+    try {
+      const notes = await Note.find();
+      res.status(200).json(notes);
+    } catch (err) {
+      console.error("Error:", err.message);
+      res.status(500).json({ error: err.message });
+    }
   },
   // @route     POST api/notes
   // @desc      Create a note
