@@ -5,8 +5,28 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 module.exports = {
+  // @route     GET api/auth
+  // @desc      Get logged in user
+  // @access    Private
   get: async (req, res) => {
-    res.status(200).json({ msg: "Get a logged in user" });
+    const id = req.id;
+
+    try {
+      const user = await User.findById(id, "name");
+
+      jwt.sign(
+        { user: id },
+        process.env.JWTSECRET,
+        { expiresIn: "24h" },
+        (err, token) => {
+          if (err) throw err;
+          res.status(200).json({ name: user.name, token });
+        }
+      );
+    } catch (err) {
+      console.error("Error:", err.message);
+      res.status(500).json({ msg: "Authorization failed" });
+    }
   },
   // @route     POST api/auth
   // @desc      Auth user & get token
@@ -25,7 +45,7 @@ module.exports = {
       }
 
       const comparedPasswords = bcryptjs.compare(
-        req.body.password,
+        String(req.body.password),
         user.password
       );
 

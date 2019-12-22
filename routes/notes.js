@@ -8,7 +8,7 @@ const notesController = require("../controllers/notes");
 // @route     GET api/notes
 // @desc      Get all notes
 // @access    Private
-router.get("/", notesController.index);
+router.get("/", auth, notesController.index);
 
 // @route     POST api/notes
 // @desc      Create a note
