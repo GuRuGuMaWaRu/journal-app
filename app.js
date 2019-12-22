@@ -29,6 +29,18 @@ app.use("/api/user", require("./routes/user"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/note", require("./routes/notes"));
 
+// Handle 404 errors
+app.use((req, res) => {
+  res.status(404).json({ msg: "Not found!" });
+});
+// Handle other errors
+app.use((err, req, res) => {
+  console.log("Error:", err.message);
+  res
+    .status(err.status || 500)
+    .json({ msg: err.message || "There was an error" });
+});
+
 const PORT = process.env.PORT || 6000;
 
 app.listen(PORT, () => console.log(`Server is listening on port ${PORT}...`));
