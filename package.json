@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon app.js"
+    "server": "nodemon app.js",
+    "build": "npm run build --output public --prefix"
   },
   "repository": {
     "type": "git",
