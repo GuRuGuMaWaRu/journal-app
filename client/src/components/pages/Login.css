@@ -1,0 +1,35 @@
+.login-title {
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+}
+
+.form {
+  display: grid;
+  place-items: center;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.form-input {
+  width: 300px;
+}
+
+.form-btn {
+  margin-top: 1.4rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: rgb(235, 205, 85);
+  cursor: pointer;
+}

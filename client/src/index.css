@@ -4,6 +4,7 @@
   --title-font: "Courier Prime", monospace;
   --text-font: "Roboto", sans-serif;
 
+  --color-text: rgb(36, 31, 31);
   --color-body-bg: whitesmoke;
   --color-nav-item: rgb(26, 91, 212);
 }
@@ -17,13 +18,13 @@ h4 {
   font-family: var(--title-font);
 }
 
-p,
-article {
+body {
   font-family: var(--text-font);
 }
 
 /* Colors */
 body {
+  color: var(--color-text);
   background-color: var(--color-body-bg);
 }
 
