@@ -3,7 +3,9 @@
 * {
   --title-font: "Courier Prime", monospace;
   --text-font: "Roboto", sans-serif;
+
   --color-body-bg: whitesmoke;
+  --color-nav-item: rgb(26, 91, 212);
 }
 
 /* Fonts */
@@ -52,7 +54,7 @@ ol[class] {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
+  min-height: calc(100vh - 52px);
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;

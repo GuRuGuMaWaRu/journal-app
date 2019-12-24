@@ -1,0 +1,23 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.nav-title {
+  margin-left: 2rem;
+}
+
+.nav-items {
+  display: flex;
+}
+
+.nav-item {
+  margin-right: 2rem;
+  text-decoration: none;
+  color: var(--color-nav-item);
+}
