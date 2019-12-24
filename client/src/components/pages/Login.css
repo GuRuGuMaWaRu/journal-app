@@ -30,6 +30,6 @@
   margin-top: 1.4rem;
   padding: 0.5rem 1rem;
   border: none;
-  background-color: rgb(235, 205, 85);
+  background-color: var(--color-form-btn-bg);
   cursor: pointer;
 }
