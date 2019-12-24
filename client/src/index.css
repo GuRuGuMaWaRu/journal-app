@@ -3,6 +3,7 @@
 * {
   --title-font: "Courier Prime", monospace;
   --text-font: "Roboto", sans-serif;
+  --color-body-bg: whitesmoke;
 }
 
 /* Fonts */
@@ -17,6 +18,11 @@ h4 {
 p,
 article {
   font-family: var(--text-font);
+}
+
+/* Colors */
+body {
+  background-color: var(--color-body-bg);
 }
 
 /* Box sizing rules */
