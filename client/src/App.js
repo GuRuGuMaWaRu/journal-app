@@ -6,30 +6,33 @@ import Main from "./components/pages/Main";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
 import NotFound from "./components/pages/NotFound";
+import AuthState from "./context/auth/AuthState";
 import "./App.css";
 
 function App() {
   return (
-    <Router>
-      <Navbar />
+    <AuthState>
+      <Router>
+        <Navbar />
 
-      <div className="container">
-        <Switch>
-          <Route exact path="/">
-            <Main />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route>
-            <NotFound />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+        <div className="container">
+          <Switch>
+            <Route exact path="/">
+              <Main />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route>
+              <NotFound />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </AuthState>
   );
 }
 

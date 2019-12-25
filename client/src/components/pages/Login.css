@@ -26,10 +26,18 @@
   width: 300px;
 }
 
+.form-alert {
+  color: var(--color-form-alert);
+}
+
 .form-btn {
   margin-top: 1.4rem;
   padding: 0.5rem 1rem;
   border: none;
   background-color: var(--color-form-btn-bg);
   cursor: pointer;
+}
+
+.form-btn:hover {
+  background-color: var(--color-form-btn-bg-hover);
 }

@@ -15,14 +15,15 @@ const AuthState = props => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   // Register user
-  const register = date => {
+  const register = data => {
     dispatch({
       type: REGISTER
     });
   };
 
   // Login user
-  const login = date => {
+  const login = data => {
+    console.log(data);
     dispatch({
       type: LOGIN
     });
