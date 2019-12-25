@@ -3,30 +3,48 @@ import axios from "axios";
 
 import AuthContext from "./authContext";
 import authReducer from "./authReducer";
-import { REGISTER, LOGIN, LOGOUT, GET_USER } from "../types";
+import setAuthHeaders from "../../utils/setAuthHeaders";
+import { REGISTER, LOGIN, LOGOUT, GET_USER, AUTH_ERROR } from "../types";
 
 const AuthState = props => {
   const initialState = {
     isAuthenticated: false,
-    user: null,
-    loadingUser: true
+    loadingUser: true,
+    user: null
   };
 
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   // Register user
-  const register = data => {
-    dispatch({
-      type: REGISTER
-    });
+  const register = async user => {
+    try {
+      const { data: token } = await axios.post("/api/user", user);
+
+      localStorage.setItem("token", token);
+      setAuthHeaders(token);
+
+      dispatch({ type: REGISTER, payload: user.name });
+    } catch (err) {
+      console.error("Error:", err.message);
+      dispatch({ type: AUTH_ERROR });
+    }
   };
 
   // Login user
-  const login = data => {
-    console.log(data);
-    dispatch({
-      type: LOGIN
-    });
+  const login = async user => {
+    try {
+      const {
+        data: { name, token }
+      } = await axios.post("/api/auth", user);
+
+      localStorage.setItem("token", token);
+      setAuthHeaders(token);
+
+      dispatch({ type: LOGIN, payload: name });
+    } catch (err) {
+      console.error("Error:", err.message);
+      dispatch({ type: AUTH_ERROR });
+    }
   };
 
   // Logout user
@@ -37,18 +55,28 @@ const AuthState = props => {
   };
 
   // Get user
-  const getUser = () => {
-    dispatch({
-      type: GET_USER
-    });
+  const getUser = async () => {
+    try {
+      const {
+        data: { name, token }
+      } = await axios.get("/api/auth");
+
+      localStorage.setItem("token", token);
+      setAuthHeaders(token);
+
+      dispatch({ type: GET_USER, payload: name });
+    } catch (err) {
+      console.error("Error:", err.message);
+      dispatch({ type: AUTH_ERROR });
+    }
   };
 
   return (
     <AuthContext.Provider
       value={{
         isAuthenticated: state.isAuthenticated,
-        user: state.user,
         loadingUser: state.loadingUser,
+        user: state.user,
         register,
         login,
         logout,

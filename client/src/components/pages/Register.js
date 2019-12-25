@@ -91,7 +91,7 @@ const Register = () => {
           ></input>
         </div>
         {alert.length > 0 && <div className="form-alert">{alert}</div>}
-        <button className="form-btn" onClick={handleSubmit}>
+        <button className="form-btn" type="submit" onClick={handleSubmit}>
           Register
         </button>
       </form>

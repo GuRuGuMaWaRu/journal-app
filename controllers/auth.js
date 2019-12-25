@@ -29,7 +29,7 @@ module.exports = {
     }
   },
   // @route     POST api/auth
-  // @desc      Auth user & get token
+  // @desc      Log in user
   // @access    Public
   login: async (req, res) => {
     const errors = validationResult(req);
