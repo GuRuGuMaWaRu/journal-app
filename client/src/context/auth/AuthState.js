@@ -49,9 +49,9 @@ const AuthState = props => {
 
   // Logout user
   const logout = () => {
-    dispatch({
-      type: LOGOUT
-    });
+    console.log("logout");
+    localStorage.removeItem("token");
+    dispatch({ type: LOGOUT });
   };
 
   // Get user
