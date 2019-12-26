@@ -2,12 +2,14 @@ import React, { useEffect, useContext } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Navbar from "./components/layout/Navbar";
+import AddNoteButton from "./components/layout/AddNoteButton";
 import Main from "./components/pages/Main";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
 import NotFound from "./components/pages/NotFound";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import AuthRoute from "./components/routing/AuthRoute";
+
 import AuthContext from "./context/auth/authContext";
 import setAuthHeaders from "./utils/setAuthHeaders";
 import "./App.css";
@@ -40,6 +42,7 @@ function App() {
           </Route>
         </Switch>
       </div>
+      <AddNoteButton />
     </Router>
   );
 }

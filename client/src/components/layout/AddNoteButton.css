@@ -1,0 +1,19 @@
+.add-note-btn {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  bottom: 2rem;
+  right: 2rem;
+  height: 70px;
+  width: 70px;
+  font-size: 1.6rem;
+  border-radius: 50%;
+  background-color: var(--color-form-btn-bg);
+  cursor: pointer;
+  transition: background-color 0.2s;
+  z-index: 100;
+}
+
+.add-note-btn:hover {
+  background-color: var(--color-form-btn-bg-hover);
+}

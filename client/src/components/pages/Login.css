@@ -36,6 +36,7 @@
   border: none;
   background-color: var(--color-form-btn-bg);
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .form-btn:hover {
