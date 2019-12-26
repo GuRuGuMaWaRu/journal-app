@@ -1,4 +1,11 @@
-import { REGISTER, LOGIN, LOGOUT, GET_USER, AUTH_ERROR } from "../types";
+import {
+  REGISTER,
+  LOGIN,
+  LOGOUT,
+  GET_USER,
+  AUTH_ERROR,
+  SET_LOADING_USER
+} from "../types";
 
 export default (state, action) => {
   switch (action.type) {
@@ -23,6 +30,11 @@ export default (state, action) => {
         isAuthenticated: true,
         loadingUser: false,
         user: action.payload
+      };
+    case SET_LOADING_USER:
+      return {
+        ...state,
+        loadingUser: action.payload
       };
     case AUTH_ERROR:
       return {

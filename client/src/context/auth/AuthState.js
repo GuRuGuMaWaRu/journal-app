@@ -4,7 +4,14 @@ import axios from "axios";
 import AuthContext from "./authContext";
 import authReducer from "./authReducer";
 import setAuthHeaders from "../../utils/setAuthHeaders";
-import { REGISTER, LOGIN, LOGOUT, GET_USER, AUTH_ERROR } from "../types";
+import {
+  REGISTER,
+  LOGIN,
+  LOGOUT,
+  GET_USER,
+  AUTH_ERROR,
+  SET_LOADING_USER
+} from "../types";
 
 const AuthState = props => {
   const initialState = {
@@ -71,6 +78,11 @@ const AuthState = props => {
     }
   };
 
+  // Set loading user to false
+  const setLoadingUser = loadingState => {
+    dispatch({ type: SET_LOADING_USER, payload: loadingState });
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -80,7 +92,8 @@ const AuthState = props => {
         register,
         login,
         logout,
-        getUser
+        getUser,
+        setLoadingUser
       }}
     >
       {props.children}
