@@ -13,7 +13,7 @@ import {
   SET_LOADING_USER
 } from "../types";
 
-const AuthState = props => {
+const AuthState = ({ children }) => {
   const initialState = {
     isAuthenticated: false,
     loadingUser: true,
@@ -96,7 +96,7 @@ const AuthState = props => {
         setLoadingUser
       }}
     >
-      {props.children}
+      {children}
     </AuthContext.Provider>
   );
 };
