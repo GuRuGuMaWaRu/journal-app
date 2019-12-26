@@ -33,14 +33,14 @@ const Register = () => {
 
     if (password !== password2) {
       setAlert("Passwords do not match");
+    } else {
+      register(values);
     }
-
-    register(values);
   };
 
   return (
     <div>
-      <h1 className="login-title">Register User</h1>
+      <h1 className="form-title">Register User</h1>
       <form className="form">
         <div className="form-group">
           <label className="form-label" htmlFor="name">
@@ -50,6 +50,7 @@ const Register = () => {
             className="form-input"
             type="text"
             name="name"
+            id="name"
             value={values.name}
             onChange={handleChange}
           ></input>
@@ -62,6 +63,7 @@ const Register = () => {
             className="form-input"
             type="email"
             name="email"
+            id="email"
             value={values.email}
             onChange={handleChange}
           ></input>
@@ -74,6 +76,7 @@ const Register = () => {
             className="form-input"
             type="password"
             name="password"
+            id="password"
             value={values.password}
             onChange={handleChange}
           ></input>
@@ -86,6 +89,7 @@ const Register = () => {
             className="form-input"
             type="password"
             name="password2"
+            id="password2"
             value={values.password2}
             onChange={handleChange}
           ></input>

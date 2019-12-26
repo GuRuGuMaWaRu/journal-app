@@ -28,14 +28,14 @@ const Login = () => {
 
     if (!email || !password) {
       setAlert("Please fill in all fields");
+    } else {
+      login(values);
     }
-
-    login(values);
   };
 
   return (
     <div>
-      <h1 className="login-title">Login User</h1>
+      <h1 className="form-title">Login User</h1>
       <form className="form">
         <div className="form-group">
           <label className="form-label" htmlFor="email">
@@ -45,6 +45,7 @@ const Login = () => {
             className="form-input"
             type="email"
             name="email"
+            id="email"
             value={values.email}
             onChange={handleChange}
           ></input>
@@ -57,6 +58,7 @@ const Login = () => {
             className="form-input"
             type="password"
             name="password"
+            id="password"
             value={values.password}
             onChange={handleChange}
           ></input>

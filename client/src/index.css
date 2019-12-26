@@ -10,7 +10,9 @@
   --color-form-btn-bg: rgb(212, 184, 71);
   --color-form-btn-bg-hover: rgb(243, 214, 96);
   --color-form-alert: rgb(235, 64, 34);
-  --color-add-note-btn: rgb(187, 186, 186);
+  --color-cancel-btn-bg: rgb(218, 211, 211);
+  --color-cancel-btn-bg-hover: rgb(139, 132, 132);
+  --color-modal-overlay: rgba(209, 134, 134, 0.2);
 
   --color-cool: rgb(189, 59, 59);
 }

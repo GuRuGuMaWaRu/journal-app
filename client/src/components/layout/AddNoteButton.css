@@ -7,11 +7,12 @@
   height: 70px;
   width: 70px;
   font-size: 1.6rem;
+  border: none;
   border-radius: 50%;
   background-color: var(--color-form-btn-bg);
   cursor: pointer;
   transition: background-color 0.2s;
-  z-index: 100;
+  z-index: 50;
 }
 
 .add-note-btn:hover {

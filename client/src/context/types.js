@@ -7,3 +7,7 @@ export const AUTH_ERROR = "AUTH_ERROR";
 export const SET_LOADING_USER = "SET_LOADING_USER";
 
 // Notes
+
+// Modal
+export const OPEN_MODAL = "OPEN_MODAL";
+export const CLOSE_MODAL = "CLOSE_MODAL";
