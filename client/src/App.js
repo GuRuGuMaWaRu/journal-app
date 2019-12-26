@@ -14,11 +14,11 @@ import "./App.css";
 
 function App() {
   const authContext = useContext(AuthContext);
-  const { isAuthenticated, loadingUser, getUser, setLoadingUser } = authContext;
+  const { getUser, setLoadingUser } = authContext;
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
-      setAuthHeaders(localStorage.getItem("token"));
+    if (localStorage.token) {
+      setAuthHeaders(localStorage.token);
       getUser();
     } else {
       setLoadingUser(false);

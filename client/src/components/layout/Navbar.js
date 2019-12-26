@@ -6,7 +6,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const authContext = useContext(AuthContext);
-  const { isAuthenticated, loadingUser, logout } = authContext;
+  const { isAuthenticated, logout } = authContext;
 
   const guestLinks = (
     <Fragment>
