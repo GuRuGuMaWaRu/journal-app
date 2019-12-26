@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 
 import ModalContext from "../../context/modal/modalContext";
+import NotesContext from "../../context/notes/notesContext";
 import "./ModalForm.css";
 
 const ModalForm = () => {
@@ -10,7 +11,9 @@ const ModalForm = () => {
   });
   const [alert, setAlert] = useState("");
   const modalContext = useContext(ModalContext);
+  const notesContext = useContext(NotesContext);
   const { closeModal } = modalContext;
+  const { createNote } = notesContext;
 
   const handleChange = e => {
     if (alert.length > 0) {
@@ -29,6 +32,7 @@ const ModalForm = () => {
     if (!title || !body) {
       setAlert("Please fill in all fields");
     } else {
+      createNote(values);
       closeModal();
     }
   };
@@ -40,11 +44,25 @@ const ModalForm = () => {
         <form className="modal-form">
           <div className="modal-form-group">
             <label htmlFor="title">Title:</label>
-            <input type="text" name="title" id="title"></input>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              value={values.title}
+              onChange={handleChange}
+            ></input>
           </div>
           <div className="modal-form-group">
             <label htmlFor="body">Body:</label>
-            <textarea type="text" name="body" id="body" rows="5" cols="50" />
+            <textarea
+              type="text"
+              name="body"
+              id="body"
+              rows="5"
+              cols="50"
+              value={values.body}
+              onChange={handleChange}
+            />
           </div>
           {alert.length > 0 && <div className="form-alert">{alert}</div>}
           <div className="modal-actions">

@@ -9,7 +9,8 @@ import {
   CREATE_NOTE,
   UPDATE_NOTE,
   DELETE_NOTE,
-  FILTER_NOTES
+  FILTER_NOTES,
+  ERROR
 } from "../types";
 
 const NotesState = ({ children }) => {
@@ -27,7 +28,16 @@ const NotesState = ({ children }) => {
   const getNote = id => {};
 
   // Create a note
-  const createNote = note => {};
+  const createNote = async note => {
+    try {
+      const { data } = await axios.post("/api/note", note);
+      console.log(data);
+      dispatch({ type: CREATE_NOTE, payload: data });
+    } catch (err) {
+      console.error("Error:", err.message);
+      dispatch({ type: ERROR });
+    }
+  };
 
   // Update a note
   const updateNote = note => {};
