@@ -1,0 +1,39 @@
+.note {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: 300px;
+  min-height: 200px;
+  padding: 1.2rem;
+  border: 1px solid darkgray;
+  border-radius: var(--border-radius);
+  margin: 1.2rem;
+  background-color: rgb(252, 252, 252);
+}
+
+.note-title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.note-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.note-btn {
+  width: 80px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.note-btn-edit {
+  color: #000;
+  background-color: rgb(223, 215, 110);
+}
+
+.note-btn-delete {
+  background-color: rgb(196, 196, 196);
+}

@@ -1,0 +1,7 @@
+.notes-list {
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr); */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}

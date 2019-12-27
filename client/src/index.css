@@ -4,6 +4,8 @@
   --title-font: "Courier Prime", monospace;
   --text-font: "Roboto", sans-serif;
 
+  --border-radius: 3px;
+
   --color-text: rgb(36, 31, 31);
   --color-body-bg: whitesmoke;
   --color-nav-item: rgb(26, 91, 212);

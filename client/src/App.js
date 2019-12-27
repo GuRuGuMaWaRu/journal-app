@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import AddNoteButton from "./components/layout/AddNoteButton";
 import ModalForm from "./components/layout/ModalForm";
-import Main from "./components/pages/Main";
+import Notes from "./components/pages/Notes";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
 import NotFound from "./components/pages/NotFound";
@@ -38,7 +38,7 @@ function App() {
 
       <div className="container">
         <Switch>
-          <PrivateRoute component={Main} exact path="/" />
+          <PrivateRoute component={Notes} exact path="/" />
           <AuthRoute component={Login} path="/login" />
           <AuthRoute component={Register} path="/register" />
           <Route>

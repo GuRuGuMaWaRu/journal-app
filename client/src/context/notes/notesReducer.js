@@ -10,6 +10,12 @@ import {
 
 export default (state, action) => {
   switch (action.type) {
+    case GET_NOTES:
+      return {
+        ...state,
+        loadingNotes: false,
+        notes: action.payload
+      };
     case CREATE_NOTE:
       return {
         ...state,

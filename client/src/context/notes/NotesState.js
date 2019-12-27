@@ -16,13 +16,24 @@ import {
 const NotesState = ({ children }) => {
   const initialState = {
     notes: [],
-    currentNote: {}
+    currentNote: {},
+    loadingNotes: true
   };
 
   const [state, dispatch] = useReducer(notesReducer, initialState);
 
   // Get all notes
-  const getNotes = () => {};
+  const getNotes = async () => {
+    try {
+      const { data } = await axios.get("/api/note");
+
+      dispatch({ type: GET_NOTES, payload: data });
+      console.log(data);
+    } catch (err) {
+      console.error("Error:", err.message);
+      dispatch({ type: ERROR });
+    }
+  };
 
   // Get a note
   const getNote = id => {};
@@ -31,7 +42,7 @@ const NotesState = ({ children }) => {
   const createNote = async note => {
     try {
       const { data } = await axios.post("/api/note", note);
-      console.log(data);
+
       dispatch({ type: CREATE_NOTE, payload: data });
     } catch (err) {
       console.error("Error:", err.message);
@@ -53,6 +64,7 @@ const NotesState = ({ children }) => {
       value={{
         notes: state.notes,
         currentNote: state.currentNote,
+        loadingNotes: state.loadingNotes,
         getNotes,
         getNote,
         createNote,
