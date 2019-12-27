@@ -27,7 +27,7 @@ const AuthState = ({ children }) => {
     try {
       const { data: token } = await axios.post("/api/user", user);
 
-      localStorage.setItem("token", token);
+      localStorage.setItem("journal_app_token", token);
       setAuthHeaders(token);
 
       dispatch({ type: REGISTER, payload: user.name });
@@ -44,7 +44,7 @@ const AuthState = ({ children }) => {
         data: { name, token }
       } = await axios.post("/api/auth", user);
 
-      localStorage.setItem("token", token);
+      localStorage.setItem("journal_app_token", token);
       setAuthHeaders(token);
 
       dispatch({ type: LOGIN, payload: name });
@@ -57,7 +57,7 @@ const AuthState = ({ children }) => {
   // Logout user
   const logout = () => {
     console.log("logout");
-    localStorage.removeItem("token");
+    localStorage.removeItem("journal_app_token");
     dispatch({ type: LOGOUT });
   };
 
@@ -68,7 +68,7 @@ const AuthState = ({ children }) => {
         data: { name, token }
       } = await axios.get("/api/auth");
 
-      localStorage.setItem("token", token);
+      localStorage.setItem("journal_app_token", token);
       setAuthHeaders(token);
 
       dispatch({ type: GET_USER, payload: name });

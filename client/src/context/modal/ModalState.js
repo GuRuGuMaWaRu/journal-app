@@ -6,7 +6,7 @@ import { OPEN_MODAL, CLOSE_MODAL } from "../types";
 
 const ModalState = ({ children }) => {
   const initialState = {
-    isOpen: true
+    isOpen: false
   };
 
   const [state, dispatch] = useReducer(modalReducer, initialState);

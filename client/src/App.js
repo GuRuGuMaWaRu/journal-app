@@ -23,8 +23,8 @@ function App() {
   const { isOpen } = modalContext;
 
   useEffect(() => {
-    if (localStorage.token) {
-      setAuthHeaders(localStorage.token);
+    if (localStorage.journal_app_token) {
+      setAuthHeaders(localStorage.journal_app_token);
       getUser();
     } else {
       setLoadingUser(false);
