@@ -14,7 +14,10 @@
   --color-form-alert: rgb(235, 64, 34);
   --color-cancel-btn-bg: rgb(218, 211, 211);
   --color-cancel-btn-bg-hover: rgb(139, 132, 132);
-  --color-modal-overlay: rgba(133, 119, 119, 0.3);
+  --color-modal-overlay: rgba(0, 0, 0, 0.5);
+  --color-note-bg: rgb(252, 252, 252);
+  --color-note-edit-btn: rgb(42, 173, 10);
+  --color-note-delete-btn: rgb(141, 141, 141);
 
   --color-cool: rgb(189, 59, 59);
 }

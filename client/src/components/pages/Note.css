@@ -7,8 +7,8 @@
   padding: 1.2rem;
   border: 1px solid darkgray;
   border-radius: var(--border-radius);
-  margin: 1.2rem;
-  background-color: rgb(252, 252, 252);
+  /* margin: 1.2rem; */
+  background-color: var(--color-note-bg);
 }
 
 .note-title {
@@ -18,22 +18,38 @@
 
 .note-actions {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 1rem;
 }
 
 .note-btn {
-  width: 80px;
+  /* width: 80px; */
+  padding: 0;
   border: none;
-  border-radius: var(--border-radius);
+  /* border-radius: var(--border-radius); */
+  background-color: var(--color-note-bg);
   cursor: pointer;
 }
 
 .note-btn-edit {
-  color: #000;
-  background-color: rgb(223, 215, 110);
+  color: var(--color-note-edit-btn);
+  /* background-color: rgb(223, 215, 110);
+  background-color: var(--color-form-btn-bg);
+  transition: background-color 0.2s; */
+}
+
+.note-btn-edit:hover {
+  /* background-color: var(--color-form-btn-bg-hover); */
 }
 
 .note-btn-delete {
-  background-color: rgb(196, 196, 196);
+  color: var(--color-note-delete-btn);
+  /* background-color: rgb(196, 196, 196);
+  background-color: var(--color-cancel-btn-bg);
+  transition: background-color 0.2s, color 0.2s; */
+}
+
+.note-btn-delete:hover {
+  /* color: #fff;
+  background-color: var(--color-cancel-btn-bg-hover); */
 }
