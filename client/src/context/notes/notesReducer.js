@@ -39,6 +39,11 @@ export default (state, action) => {
         currentNote: null,
         modalIsOpen: false
       };
+    case DELETE_NOTE:
+      return {
+        ...state,
+        notes: state.notes.filter(note => note._id !== action.payload)
+      };
     case OPEN_MODAL:
       return {
         ...state,

@@ -7,7 +7,7 @@ import "./Notes.css";
 
 const Notes = () => {
   const notesContext = useContext(NotesContext);
-  const { notes, loadingNotes, getNotes, getNote } = notesContext;
+  const { notes, loadingNotes, getNotes, getNote, deleteNote } = notesContext;
 
   useEffect(() => {
     if (loadingNotes) {
@@ -18,11 +18,17 @@ const Notes = () => {
   }, [loadingNotes]);
 
   const handleSelectNote = id => getNote(id);
+  const handleDeleteNote = id => deleteNote(id);
 
   return (
     <div className="notes-list">
       {notes.map(note => (
-        <Note key={note._id} note={note} handleSelectNote={handleSelectNote} />
+        <Note
+          key={note._id}
+          note={note}
+          handleSelectNote={handleSelectNote}
+          handleDeleteNote={handleDeleteNote}
+        />
       ))}
     </div>
   );

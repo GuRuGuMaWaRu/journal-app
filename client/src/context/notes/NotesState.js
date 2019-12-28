@@ -70,7 +70,15 @@ const NotesState = ({ children }) => {
   };
 
   // Delete a note
-  const deleteNote = id => {};
+  const deleteNote = async id => {
+    try {
+      await axios.delete(`/api/note/${id}`);
+      dispatch({ type: DELETE_NOTE, payload: id });
+    } catch (err) {
+      console.error("Error:", err.message);
+      dispatch({ type: ERROR });
+    }
+  };
 
   // Filter notes
   const filterNotes = query => {};
