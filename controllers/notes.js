@@ -68,9 +68,13 @@ module.exports = {
     const updatedNote = { ...req.body, date: Date.now() };
 
     try {
-      await Note.findOneAndUpdate({ _id: id, user: userId }, updatedNote);
-
-      res.status(200).json({ msg: "Note updated successfully" });
+      const updated = await Note.findOneAndUpdate(
+        { _id: id, user: userId },
+        updatedNote,
+        { new: true }
+      );
+      console.log(updated);
+      res.status(200).json(updated);
     } catch (err) {
       console.error("Error:", err.message);
       res.status(500).json({ error: err.message });

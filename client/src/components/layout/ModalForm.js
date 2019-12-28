@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import NotesContext from "../../context/notes/notesContext";
 import "./ModalForm.css";
@@ -10,7 +10,16 @@ const ModalForm = () => {
   });
   const [alert, setAlert] = useState("");
   const notesContext = useContext(NotesContext);
-  const { createNote, closeModal } = notesContext;
+  const { currentNote, createNote, updateNote, closeModal } = notesContext;
+
+  useEffect(() => {
+    if (currentNote) {
+      setValues({
+        title: currentNote.title,
+        body: currentNote.body
+      });
+    }
+  }, [currentNote]);
 
   const handleChange = e => {
     if (alert.length > 0) {
@@ -29,14 +38,16 @@ const ModalForm = () => {
     if (!title || !body) {
       setAlert("Please fill in all fields");
     } else {
-      createNote(values);
+      currentNote ? updateNote(values, currentNote._id) : createNote(values);
     }
   };
 
   return (
     <div className="modal-overlay" onClick={closeModal}>
       <div className="modal-window" onClick={e => e.stopPropagation()}>
-        <h2 className="modal-title">Add Note</h2>
+        <h2 className="modal-title">
+          {currentNote ? "Edit Note" : "Add Note"}
+        </h2>
         <form className="modal-form">
           <div className="modal-form-group">
             <label htmlFor="title">Title:</label>
@@ -67,7 +78,7 @@ const ModalForm = () => {
               type="submit"
               onClick={handleSave}
             >
-              Save
+              {currentNote ? "Update" : "Save"}
             </button>
             <button className="cancel-btn" onClick={closeModal}>
               Cancel

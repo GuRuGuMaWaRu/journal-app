@@ -21,12 +21,22 @@ export default (state, action) => {
     case GET_NOTE:
       return {
         ...state,
-        currentNote: state.notes.filter(note => note._id === action.payload)[0]
+        currentNote: state.notes.filter(note => note._id === action.payload)[0],
+        modalIsOpen: true
       };
     case CREATE_NOTE:
       return {
         ...state,
         notes: [...state.notes, action.payload],
+        modalIsOpen: false
+      };
+    case UPDATE_NOTE:
+      return {
+        ...state,
+        notes: state.notes.map(note => {
+          return note._id === action.payload._id ? action.payload : note;
+        }),
+        currentNote: null,
         modalIsOpen: false
       };
     case OPEN_MODAL:
@@ -37,6 +47,7 @@ export default (state, action) => {
     case CLOSE_MODAL:
       return {
         ...state,
+        currentNote: null,
         modalIsOpen: false
       };
 

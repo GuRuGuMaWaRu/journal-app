@@ -55,7 +55,19 @@ const NotesState = ({ children }) => {
   };
 
   // Update a note
-  const updateNote = note => {};
+  const updateNote = async (note, id) => {
+    try {
+      const { data: updatedNote } = await axios.patch(`/api/note/${id}`, note);
+
+      dispatch({
+        type: UPDATE_NOTE,
+        payload: updatedNote
+      });
+    } catch (err) {
+      console.error("Error:", err.message);
+      dispatch({ type: ERROR });
+    }
+  };
 
   // Delete a note
   const deleteNote = id => {};
