@@ -17,7 +17,7 @@ export default (state, action) => {
       return {
         ...state,
         loadingNotes: false,
-        notes: action.payload
+        notes: action.payload.reverse()
       };
     case GET_NOTE:
       return {
@@ -28,7 +28,7 @@ export default (state, action) => {
     case CREATE_NOTE:
       return {
         ...state,
-        notes: [...state.notes, action.payload],
+        notes: [action.payload, ...state.notes],
         modalIsOpen: false
       };
     case UPDATE_NOTE:

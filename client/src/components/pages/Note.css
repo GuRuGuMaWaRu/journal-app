@@ -44,6 +44,7 @@
 
 @media (max-width: 600px) {
   .note {
+    min-height: 0;
     padding: 0.5rem;
     border: none;
     border-top: 1px solid darkgray;

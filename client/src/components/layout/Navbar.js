@@ -37,10 +37,20 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <h3 className="nav-title">Journal App</h3>
-      <div className="nav-items">
-        {!isAuthenticated ? guestLinks : userLinks}
+      <div className="navbar-main">
+        <h3 className="nav-title">Journal App</h3>
+        <div className="nav-items">
+          {!isAuthenticated ? guestLinks : userLinks}
+        </div>
       </div>
+      {isAuthenticated && (
+        <div className="nav-search">
+          <input className="nav-search-input" type="text"></input>
+          <button className="nav-search-button">
+            <i className="fas fa-times"></i>
+          </button>
+        </div>
+      )}
     </nav>
   );
 };
