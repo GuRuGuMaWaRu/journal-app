@@ -7,6 +7,7 @@
 .form {
   display: grid;
   place-items: center;
+  width: 100%;
 }
 
 .form-group {
@@ -23,7 +24,8 @@
 }
 
 .form-input {
-  width: 300px;
+  justify-self: start;
+  width: 100%;
   border: 1px solid darkgray;
   border-radius: var(--border-radius);
 }
@@ -44,4 +46,22 @@
 
 .form-btn:hover {
   background-color: var(--color-form-btn-bg-hover);
+}
+
+@media (max-width: 600px) {
+  .form {
+    padding: 0 0.5rem;
+    font-size: 0.8rem;
+  }
+  .form-title {
+    font-size: 1rem;
+  }
+  .form-label {
+    /* font-size: 0.8rem; */
+    margin-right: 0.7rem;
+  }
+  .form-input {
+    width: 100%;
+    justify-self: stretch;
+  }
 }

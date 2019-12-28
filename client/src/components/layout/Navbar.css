@@ -4,10 +4,11 @@
   align-items: center;
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   padding: 0.7rem 0;
   background-color: var(--color-body-bg);
-  /* background-color: rgba(141, 140, 140, 0.1); */
 }
 
 .nav-title {
@@ -16,6 +17,7 @@
 
 .nav-items {
   display: flex;
+  align-items: center;
 }
 
 .nav-item {
@@ -24,4 +26,36 @@
   text-decoration: none;
   color: var(--color-nav-item);
   cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .nav-title {
+    margin-left: 1.5rem;
+  }
+  .nav-item {
+    margin-right: 1.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-title {
+    margin-left: 1rem;
+  }
+  .nav-item {
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding-top: 0.5rem;
+  }
+  .nav-title {
+    font-size: 0.9rem;
+    margin-left: 0.7rem;
+  }
+  .nav-item {
+    font-size: 0.9rem;
+    margin-left: 0.7rem;
+  }
 }

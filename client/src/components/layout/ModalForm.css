@@ -54,3 +54,16 @@
   color: #fff;
   background-color: var(--color-cancel-btn-bg-hover);
 }
+
+@media (max-width: 600px) {
+  .modal-overlay {
+    place-items: stretch;
+  }
+  .modal-window {
+    font-size: 0.8rem;
+    padding: 1rem 1rem;
+  }
+  .modal-window {
+    background-color: var(--color-body-bg);
+  }
+}

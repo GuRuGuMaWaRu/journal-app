@@ -18,3 +18,24 @@
 .add-note-btn:hover {
   background-color: var(--color-form-btn-bg-hover);
 }
+
+@media (max-width: 1200px) {
+  .add-note-btn {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .add-note-btn {
+    bottom: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .add-note-btn {
+    height: 50px;
+    width: 50px;
+  }
+}

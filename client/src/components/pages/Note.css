@@ -7,7 +7,6 @@
   padding: 1.2rem;
   border: 1px solid darkgray;
   border-radius: var(--border-radius);
-  /* margin: 1.2rem; */
   background-color: var(--color-note-bg);
 }
 
@@ -23,33 +22,36 @@
 }
 
 .note-btn {
-  /* width: 80px; */
   padding: 0;
   border: none;
-  /* border-radius: var(--border-radius); */
   background-color: var(--color-note-bg);
   cursor: pointer;
 }
 
 .note-btn-edit {
   color: var(--color-note-edit-btn);
-  /* background-color: rgb(223, 215, 110);
-  background-color: var(--color-form-btn-bg);
-  transition: background-color 0.2s; */
-}
-
-.note-btn-edit:hover {
-  /* background-color: var(--color-form-btn-bg-hover); */
 }
 
 .note-btn-delete {
   color: var(--color-note-delete-btn);
-  /* background-color: rgb(196, 196, 196);
-  background-color: var(--color-cancel-btn-bg);
-  transition: background-color 0.2s, color 0.2s; */
 }
 
-.note-btn-delete:hover {
-  /* color: #fff;
-  background-color: var(--color-cancel-btn-bg-hover); */
+@media (max-width: 800px) {
+  .note {
+    padding: 0.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .note {
+    padding: 0.5rem;
+    border: none;
+    border-top: 1px solid darkgray;
+  }
+  .note:last-child {
+    border-bottom: 1px solid darkgray;
+  }
+  .note-actions {
+    justify-content: space-around;
+  }
 }

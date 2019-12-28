@@ -10,6 +10,7 @@ import {
   UPDATE_NOTE,
   DELETE_NOTE,
   FILTER_NOTES,
+  CLEAR_DATA,
   OPEN_MODAL,
   CLOSE_MODAL,
   ERROR
@@ -80,6 +81,10 @@ const NotesState = ({ children }) => {
     }
   };
 
+  const clearData = () => {
+    dispatch({ type: CLEAR_DATA });
+  };
+
   // Filter notes
   const filterNotes = query => {};
 
@@ -105,6 +110,7 @@ const NotesState = ({ children }) => {
         createNote,
         updateNote,
         deleteNote,
+        clearData,
         openModal,
         closeModal
       }}

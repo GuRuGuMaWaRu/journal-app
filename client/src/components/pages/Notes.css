@@ -1,10 +1,20 @@
 .notes-list {
   display: grid;
-  /* grid-template-columns: repeat(3, 1fr); */
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 1rem;
-  margin: 6rem 0 2rem;
-  /* display: flex;
-  justify-content: center;
-  flex-wrap: wrap; */
+  padding: 3rem 0 2rem;
+}
+
+@media (max-width: 800px) {
+  .notes-list {
+    grid-gap: 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .notes-list {
+    grid-gap: 0;
+    font-size: 0.8rem;
+    padding: 1.5rem 0 2rem;
+  }
 }

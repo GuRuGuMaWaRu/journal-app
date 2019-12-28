@@ -4,6 +4,7 @@ import {
   CREATE_NOTE,
   UPDATE_NOTE,
   DELETE_NOTE,
+  CLEAR_DATA,
   FILTER_NOTES,
   OPEN_MODAL,
   CLOSE_MODAL,
@@ -44,6 +45,12 @@ export default (state, action) => {
         ...state,
         notes: state.notes.filter(note => note._id !== action.payload)
       };
+    case CLEAR_DATA:
+      return {
+        notes: [],
+        currentNote: null,
+        loadingNotes: true
+      };
     case OPEN_MODAL:
       return {
         ...state,
@@ -55,7 +62,12 @@ export default (state, action) => {
         currentNote: null,
         modalIsOpen: false
       };
-
+    case ERROR:
+      return {
+        ...state,
+        currentNote: null,
+        modalIsOpen: false
+      };
     default:
       return state;
   }

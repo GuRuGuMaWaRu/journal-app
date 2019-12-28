@@ -56,7 +56,6 @@ const AuthState = ({ children }) => {
 
   // Logout user
   const logout = () => {
-    console.log("logout");
     localStorage.removeItem("journal_app_token");
     dispatch({ type: LOGOUT });
   };

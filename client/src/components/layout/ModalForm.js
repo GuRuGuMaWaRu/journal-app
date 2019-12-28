@@ -66,7 +66,6 @@ const ModalForm = () => {
               name="body"
               id="body"
               rows="5"
-              cols="50"
               value={values.body}
               onChange={handleChange}
             />
