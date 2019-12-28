@@ -6,6 +6,7 @@ import {
   DELETE_NOTE,
   CLEAR_DATA,
   FILTER_NOTES,
+  CLEAR_FILTERED,
   OPEN_MODAL,
   CLOSE_MODAL,
   ERROR
@@ -29,6 +30,7 @@ export default (state, action) => {
       return {
         ...state,
         notes: [action.payload, ...state.notes],
+        filteredNotes: [action.payload, ...state.filteredNotes],
         modalIsOpen: false
       };
     case UPDATE_NOTE:
@@ -37,19 +39,46 @@ export default (state, action) => {
         notes: state.notes.map(note => {
           return note._id === action.payload._id ? action.payload : note;
         }),
+        filteredNotes: state.filteredNotes.map(note => {
+          return note._id === action.payload._id ? action.payload : note;
+        }),
         currentNote: null,
         modalIsOpen: false
       };
     case DELETE_NOTE:
       return {
         ...state,
-        notes: state.notes.filter(note => note._id !== action.payload)
+        notes: state.notes.filter(note => note._id !== action.payload),
+        filteredNotes: state.filteredNotes.filter(
+          note => note._id !== action.payload
+        )
       };
     case CLEAR_DATA:
       return {
+        ...state,
         notes: [],
+        filterQuery: "",
+        filteredNotes: [],
         currentNote: null,
         loadingNotes: true
+      };
+    case FILTER_NOTES:
+      return {
+        ...state,
+        filterQuery: action.payload,
+        filteredNotes: state.notes.filter(note => {
+          const pattern = RegExp(`${action.payload}`, "gi");
+          if (pattern.test(note.title) || pattern.test(note.body)) {
+            return true;
+          }
+          return false;
+        })
+      };
+    case CLEAR_FILTERED:
+      return {
+        ...state,
+        filterQuery: "",
+        filteredNotes: []
       };
     case OPEN_MODAL:
       return {

@@ -7,7 +7,15 @@ import "./Notes.css";
 
 const Notes = () => {
   const notesContext = useContext(NotesContext);
-  const { notes, loadingNotes, getNotes, getNote, deleteNote } = notesContext;
+  const {
+    notes,
+    filteredNotes,
+    filterQuery,
+    loadingNotes,
+    getNotes,
+    getNote,
+    deleteNote
+  } = notesContext;
 
   useEffect(() => {
     if (loadingNotes) {
@@ -19,6 +27,21 @@ const Notes = () => {
 
   const handleSelectNote = id => getNote(id);
   const handleDeleteNote = id => deleteNote(id);
+
+  if (filterQuery.length > 0) {
+    return (
+      <div className="notes-list">
+        {filteredNotes.map(note => (
+          <Note
+            key={note._id}
+            note={note}
+            handleSelectNote={handleSelectNote}
+            handleDeleteNote={handleDeleteNote}
+          />
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="notes-list">

@@ -10,6 +10,7 @@ import {
   UPDATE_NOTE,
   DELETE_NOTE,
   FILTER_NOTES,
+  CLEAR_FILTERED,
   CLEAR_DATA,
   OPEN_MODAL,
   CLOSE_MODAL,
@@ -19,6 +20,8 @@ import {
 const NotesState = ({ children }) => {
   const initialState = {
     notes: [],
+    filterQuery: "",
+    filteredNotes: [],
     currentNote: null,
     loadingNotes: true,
     modalIsOpen: false
@@ -86,7 +89,14 @@ const NotesState = ({ children }) => {
   };
 
   // Filter notes
-  const filterNotes = query => {};
+  const filterNotes = query => {
+    dispatch({ type: FILTER_NOTES, payload: query });
+  };
+
+  // Clear filtered notes
+  const clearFiltered = () => {
+    dispatch({ type: CLEAR_FILTERED });
+  };
 
   // Open modal
   const openModal = () => {
@@ -102,6 +112,8 @@ const NotesState = ({ children }) => {
     <NotesContext.Provider
       value={{
         notes: state.notes,
+        filterQuery: state.filterQuery,
+        filteredNotes: state.filteredNotes,
         currentNote: state.currentNote,
         loadingNotes: state.loadingNotes,
         modalIsOpen: state.modalIsOpen,
@@ -111,6 +123,8 @@ const NotesState = ({ children }) => {
         updateNote,
         deleteNote,
         clearData,
+        filterNotes,
+        clearFiltered,
         openModal,
         closeModal
       }}

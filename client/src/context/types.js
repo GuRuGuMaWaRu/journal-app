@@ -17,5 +17,6 @@ export const CREATE_NOTE = "CREATE_NOTE";
 export const UPDATE_NOTE = "UPDATE_NOTE";
 export const DELETE_NOTE = "DELETE_NOTE";
 export const FILTER_NOTES = "FILTER_NOTES";
+export const CLEAR_FILTERED = "CLEAR_FILTERED";
 export const CLEAR_DATA = "CLEAR_DATA";
 export const ERROR = "ERROR";
