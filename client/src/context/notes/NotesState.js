@@ -10,14 +10,17 @@ import {
   UPDATE_NOTE,
   DELETE_NOTE,
   FILTER_NOTES,
+  OPEN_MODAL,
+  CLOSE_MODAL,
   ERROR
 } from "../types";
 
 const NotesState = ({ children }) => {
   const initialState = {
     notes: [],
-    currentNote: {},
-    loadingNotes: true
+    currentNote: null,
+    loadingNotes: true,
+    modalIsOpen: false
   };
 
   const [state, dispatch] = useReducer(notesReducer, initialState);
@@ -28,7 +31,6 @@ const NotesState = ({ children }) => {
       const { data } = await axios.get("/api/note");
 
       dispatch({ type: GET_NOTES, payload: data });
-      console.log(data);
     } catch (err) {
       console.error("Error:", err.message);
       dispatch({ type: ERROR });
@@ -36,7 +38,9 @@ const NotesState = ({ children }) => {
   };
 
   // Get a note
-  const getNote = id => {};
+  const getNote = id => {
+    dispatch({ type: GET_NOTE, payload: id });
+  };
 
   // Create a note
   const createNote = async note => {
@@ -59,17 +63,30 @@ const NotesState = ({ children }) => {
   // Filter notes
   const filterNotes = query => {};
 
+  // Open modal
+  const openModal = () => {
+    dispatch({ type: OPEN_MODAL });
+  };
+
+  // Close modal
+  const closeModal = () => {
+    dispatch({ type: CLOSE_MODAL });
+  };
+
   return (
     <NotesContext.Provider
       value={{
         notes: state.notes,
         currentNote: state.currentNote,
         loadingNotes: state.loadingNotes,
+        modalIsOpen: state.modalIsOpen,
         getNotes,
         getNote,
         createNote,
         updateNote,
-        deleteNote
+        deleteNote,
+        openModal,
+        closeModal
       }}
     >
       {children}

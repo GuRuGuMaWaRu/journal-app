@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 
-import ModalContext from "../../context/modal/modalContext";
 import NotesContext from "../../context/notes/notesContext";
 import "./ModalForm.css";
 
@@ -10,10 +9,8 @@ const ModalForm = () => {
     body: ""
   });
   const [alert, setAlert] = useState("");
-  const modalContext = useContext(ModalContext);
   const notesContext = useContext(NotesContext);
-  const { closeModal } = modalContext;
-  const { createNote } = notesContext;
+  const { createNote, closeModal } = notesContext;
 
   const handleChange = e => {
     if (alert.length > 0) {
@@ -33,7 +30,6 @@ const ModalForm = () => {
       setAlert("Please fill in all fields");
     } else {
       createNote(values);
-      closeModal();
     }
   };
 

@@ -7,7 +7,7 @@ import "./Notes.css";
 
 const Notes = () => {
   const notesContext = useContext(NotesContext);
-  const { notes, loadingNotes, getNotes } = notesContext;
+  const { notes, loadingNotes, getNotes, getNote } = notesContext;
 
   useEffect(() => {
     if (loadingNotes) {
@@ -17,10 +17,12 @@ const Notes = () => {
     // eslint-disable-next-line
   }, [loadingNotes]);
 
+  const handleSelectNote = id => getNote(id);
+
   return (
     <div className="notes-list">
       {notes.map(note => (
-        <Note key={note._id} note={note} />
+        <Note key={note._id} note={note} handleSelectNote={handleSelectNote} />
       ))}
     </div>
   );

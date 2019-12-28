@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 
-import ModalContext from "../../context/modal/modalContext";
+import NotesContext from "../../context/notes/notesContext";
 import "./AddNoteButton.css";
 
 const AddNoteButton = () => {
-  const modalContext = useContext(ModalContext);
-  const { openModal } = modalContext;
+  const notesContext = useContext(NotesContext);
+  const { openModal } = notesContext;
 
   return (
     <button className="add-note-btn" onClick={openModal}>

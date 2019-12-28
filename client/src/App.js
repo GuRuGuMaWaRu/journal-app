@@ -12,15 +12,15 @@ import PrivateRoute from "./components/routing/PrivateRoute";
 import AuthRoute from "./components/routing/AuthRoute";
 
 import AuthContext from "./context/auth/authContext";
-import ModalContext from "./context/modal/modalContext";
+import NotesContext from "./context/notes/notesContext";
 import setAuthHeaders from "./utils/setAuthHeaders";
 import "./App.css";
 
 function App() {
   const authContext = useContext(AuthContext);
-  const modalContext = useContext(ModalContext);
+  const notesContext = useContext(NotesContext);
   const { isAuthenticated, getUser, setLoadingUser } = authContext;
-  const { isOpen } = modalContext;
+  const { modalIsOpen } = notesContext;
 
   useEffect(() => {
     if (localStorage.journal_app_token) {
@@ -46,7 +46,7 @@ function App() {
           </Route>
         </Switch>
       </div>
-      {isOpen && <ModalForm />}
+      {modalIsOpen && <ModalForm />}
       {isAuthenticated && <AddNoteButton />}
     </Router>
   );
