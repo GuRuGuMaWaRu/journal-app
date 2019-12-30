@@ -4,7 +4,7 @@
 This is a Chingu Voyage 15 Pre-work Project. Allows to create notes, sort of a blogging thing.
 
 ## Demo
-![](https://github.com/gurugumawaru/journal-app/blob/master/journall_app_demo.gif)
+![](https://github.com/gurugumawaru/journal-app/blob/master/journal_app_demo.gif)
 
 ## Features
 * Create, edit and delete notes.
