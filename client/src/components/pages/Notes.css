@@ -1,3 +1,9 @@
+.no-notes {
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 8rem 0 2rem;
+}
+
 .notes-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -12,6 +18,10 @@
 }
 
 @media (max-width: 600px) {
+  .no-notes {
+    font-size: 0.8rem;
+    padding: 8rem 1rem;
+  }
   .notes-list {
     grid-gap: 0;
     font-size: 0.8rem;

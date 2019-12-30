@@ -28,6 +28,14 @@ const Notes = () => {
   const handleSelectNote = id => getNote(id);
   const handleDeleteNote = id => deleteNote(id);
 
+  if (notes.length === 0) {
+    return (
+      <p className="no-notes">
+        Use a plus (+) button below to create some notes
+      </p>
+    );
+  }
+
   if (filterQuery.length > 0) {
     return (
       <div className="notes-list">
